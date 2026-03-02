@@ -1,0 +1,151 @@
+/* style.css — NFT.NYC 2026 Design Tokens & Components */
+
+/* ============================================
+   FONTS
+   ============================================ */
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@700,600,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap');
+
+/* ============================================
+   TYPE SCALE
+   ============================================ */
+:root {
+  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+  --text-base: clamp(1rem,     0.9rem  + 0.5vw,  1.125rem);
+  --text-lg:   clamp(1.125rem, 0.95rem + 0.85vw, 1.5rem);
+  --text-xl:   clamp(1.5rem,   1rem    + 1.5vw,  2.25rem);
+  --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+  --text-3xl:  clamp(2.5rem,   1rem    + 4vw,    5rem);
+  --text-hero: clamp(3rem,     0.5rem  + 7vw,    8rem);
+
+  /* Font families */
+  --font-display: 'Clash Display', 'Helvetica Neue', 'Arial Black', sans-serif;
+  --font-body: 'Inter', 'Helvetica Neue', 'Segoe UI', sans-serif;
+}
+
+/* ============================================
+   SPACING (4px grid)
+   ============================================ */
+:root {
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+}
+
+/* ============================================
+   CUSTOM NFT.NYC COLOR PALETTE
+   Dark-first design with vibrant multi-color accents
+   ============================================ */
+
+/* Ecosystem accent colors — available globally */
+:root {
+  --nft-blue:    #3B82F6;
+  --nft-purple:  #8B5CF6;
+  --nft-pink:    #EC4899;
+  --nft-green:   #10B981;
+  --nft-amber:   #F59E0B;
+  --nft-red:     #EF4444;
+  --nft-cyan:    #06B6D4;
+  --nft-orange:  #F97316;
+  --nft-magenta: #D946EF;
+  --nft-sky:     #38BDF8;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+  --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  --content-narrow: 640px;
+  --content-default: 960px;
+  --content-wide: 1200px;
+  --content-full: 100%;
+}
+
+/* DARK MODE (primary experience) */
+:root, [data-theme="dark"] {
+  --color-bg:             #0a0a0f;
+  --color-surface:        #111118;
+  --color-surface-2:      #18182a;
+  --color-surface-offset: #0f0f1a;
+  --color-surface-offset-2: #151525;
+  --color-surface-dynamic: #1e1e35;
+  --color-divider:        #2a2a45;
+  --color-border:         #35355a;
+
+  --color-text:           #f0f0f5;
+  --color-text-muted:     #9595b0;
+  --color-text-faint:     #5a5a75;
+  --color-text-inverse:   #0a0a0f;
+
+  --color-primary:        #3B82F6;
+  --color-primary-hover:  #2563EB;
+  --color-primary-active: #1D4ED8;
+  --color-primary-highlight: #1e2a4a;
+
+  --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.3);
+  --shadow-md: 0 4px 12px oklch(0 0 0 / 0.4);
+  --shadow-lg: 0 12px 32px oklch(0 0 0 / 0.5);
+}
+
+/* LIGHT MODE */
+[data-theme="light"] {
+  --color-bg:             #f5f5fa;
+  --color-surface:        #ffffff;
+  --color-surface-2:      #fafaff;
+  --color-surface-offset: #eeeef5;
+  --color-surface-offset-2: #e5e5f0;
+  --color-surface-dynamic: #dddde8;
+  --color-divider:        #d0d0e0;
+  --color-border:         #c0c0d5;
+
+  --color-text:           #1a1a2e;
+  --color-text-muted:     #6565a0;
+  --color-text-faint:     #9595b5;
+  --color-text-inverse:   #f5f5fa;
+
+  --color-primary:        #2563EB;
+  --color-primary-hover:  #1D4ED8;
+  --color-primary-active: #1e40af;
+  --color-primary-highlight: #dbeafe;
+
+  --shadow-sm: 0 1px 2px oklch(0.2 0.01 260 / 0.08);
+  --shadow-md: 0 4px 12px oklch(0.2 0.01 260 / 0.10);
+  --shadow-lg: 0 12px 32px oklch(0.2 0.01 260 / 0.14);
+}
+
+/* System preference fallback */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --color-bg:             #f5f5fa;
+    --color-surface:        #ffffff;
+    --color-surface-2:      #fafaff;
+    --color-surface-offset: #eeeef5;
+    --color-surface-offset-2: #e5e5f0;
+    --color-surface-dynamic: #dddde8;
+    --color-divider:        #d0d0e0;
+    --color-border:         #c0c0d5;
+    --color-text:           #1a1a2e;
+    --color-text-muted:     #6565a0;
+    --color-text-faint:     #9595b5;
+    --color-text-inverse:   #f5f5fa;
+    --color-primary:        #2563EB;
+    --color-primary-hover:  #1D4ED8;
+    --color-primary-active: #1e40af;
+    --color-primary-highlight: #dbeafe;
+    --shadow-sm: 0 1px 2px oklch(0.2 0.01 260 / 0.08);
+    --shadow-md: 0 4px 12px oklch(0.2 0.01 260 / 0.10);
+    --shadow-lg: 0 12px 32px oklch(0.2 0.01 260 / 0.14);
+  }
+}
